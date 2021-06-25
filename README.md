@@ -1,48 +1,59 @@
-# bliblioteca
+# juego de adivinansas
+"""este es un primer programa con una supuesta interfas de usuario, el juego es un proceso tanto de desarrollo mio, aqui no utilizo muchas cosas, pues el fin de este era esforzarme al desarrollo de la interfas"""
 
+#importo las blibiotecas que utilizare, para la interfas utilizare turtle
 import turtle
 import time
 import random
 
+"""cordenada de la locacion, la dejo en variable porque la necesitare despues"""
 cordenada_locacion=-300
 
+#creacion de la ventana 
 ventana=turtle.Screen()
 ventana.title("YESSICA GOTIC")
 ventana.setup(width= 1240, height=400)
 ventana.bgcolor("grey")
 ventana.tracer()
 
+#creacion del lapiz para el escrito
 escrito=turtle.Turtle()
 escrito.speed(0)
 escrito.hideturtle()
 escrito.penup()
 escrito.goto(0,15)
 
+#creacion del cuadro
 cuadro = turtle.Turtle()
 cuadro.speed(0)
-cuadro.color("green","blue")
-cuadro.begin_fill()
+cuadro.color("green")
 cuadro.hideturtle()
 cuadro.penup
 cuadro.goto(cordenada_locacion,0)
 cuadro.pensize(5)
 cuadro.pendown()
-cuadro.end_fill()
 
+#variable que alojara los numeros aletorios
 numero_aletorio= random.randint(1,10)
 
+"""este bucle me ayudara a recducir el codigo para los trazos del cuadro"""
 for i in range(2):
     cuadro.forward(600)
     cuadro.left(90)
     cuadro.forward(50)
     cuadro.left(90)
-
+    
 escrito.write("BIENVENIDO A YESSICA GOTIC ",align="center", font=("Arial",20,'normal'))
 time.sleep(2)
 escrito.clear()
+"""aqui hay un tiempo de espera donde se va a limpiar lo escrito en el cuadro, esto para avanzar y que no se queden los escritos ahi y se vea feo"""
+
+#bucle de entrada del jugador
 
 while True:
     y =ventana.textinput("ENTRADA ","si quieres parar escribe 'stop' \n si no escribe 'start': ")
+    
+#aqui se tomaran la entrada para cerrar o no el juego
 
     if y == 'start' or y == 'START':
         numero_jugadores=int(ventana.numinput("INICIO DEL JUEGO","numeros de jugadores, el numero maximo de jugadores es 4: ", minval=1, maxval=4))
@@ -51,6 +62,9 @@ while True:
             name_1=str(ventana.textinput("JUGADOR 1","cual es tu nombre: "))
             
             cuadro.clear()
+            
+ #definidor de funcion donde se contaran las letras de la entrada de usuario llamada name_1
+            #ademas aqui se implementaran los jugadores
             
             def contador_letras(cadena):
                 contador =0
@@ -121,6 +135,8 @@ while True:
             
             letras_totales=len(name_1)
             
+ #con los if se modificaran las medidas del cuadro, esto en variacion a la cantidad de caracteres ingresados en el nombre 
+ 
             if letras_totales >= 5 and letras_totales <= 15:
                 cordenada_ancho= letras_totales * 9 
                 b= cordenada_ancho // -2
@@ -672,6 +688,6 @@ while True:
 
             if z == numero_aletorio and x == numero_aletorio and m == numero_aletorio and n == numero_aletorio:
                 print("los tres jugadores estan empatados")
-
+#aqui se terminara toda la funcion prpia del juego pidiendo una entrada constante
     elif y == 'stop' or y == 'STOP' and y != 'start' and y != 'stop':
         break
