@@ -1,0 +1,97 @@
+import time
+from io import open
+print("""PREICFES LECTURA CRITICA #1
+
+
+                    BIENVENIDO A ESTE PREICFES SABER 11 """)
+print("si usted esta listo ")
+actitud=input()
+if actitud == 'si':
+    time.sleep(3)
+    print("Empecemos")
+    nombre= input("escriba su nombre: ")
+    archivo_icfes=open("icfes_lectura_critica.txt","r")
+    icfes = archivo_icfes.read()
+    archivo_icfes.close()
+    print(icfes)
+    #SECCION DE PREGUNTAS
+    player= 100
+    p_1= ['B','b']
+    r_1=input("pregunta 1 -respuesta-: ")
+    if r_1 in p_1:
+        player=player
+        print(player)
+    else:
+        player-=2
+        print(player)
+    #SECCION DE PREGUNTAS
+    player=player
+    p_2= ['c','C']
+    r_2=input()
+    if r_2 in p_2:
+        if player >= 100:
+            player= player
+            print(player)
+        elif player < 100:
+            player+=2
+            print(player)
+    else:
+        player-=2
+        print(player)
+    #SECCION DE PREGUNTAS    
+    p_3= ['B','b']
+    r_3=input()
+    if r_3 in p_3:
+        if player >= 100:
+            player= player
+            print(player)
+        elif player < 100:
+            player+=2
+            print(player)
+    else:
+        player-=2
+        print(player)
+    #SECCION DE PREGUNTAS
+    p_3= ['d','D']
+    r_3=input()
+    if r_3 in p_3:
+        if player >= 100:
+            player= player
+            print(player)
+        elif player < 100:
+            player+=2
+            print(player)
+    else:
+        player-=2
+        print(player)
+    #SECCION DE PREGUNTAS
+    p_4= ['C','c']
+    r_4=input()
+    if r_4 in p_4:
+        if player >= 100:
+            player= player
+            print(player)
+        elif player < 100:
+            player+=2
+            print(player)
+    else:
+        player-=2
+        print(player)
+    """SP"""
+    p_5= ['a','A']
+    r_5=input()
+    if r_5 in p_5:
+        if player >= 100:
+            player= player
+            print(player)
+        elif player < 100:
+            player+=2
+            print(player)
+    else:
+        player-=2
+        print(player)
+
+
+elif actitud == 'no':
+    print("Continuaremos otra dia")
+    exit()
